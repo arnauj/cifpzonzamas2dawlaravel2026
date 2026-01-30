@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Datos;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\FamiliaProfesionalController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,3 +43,16 @@ Route::get('/libro/show/{i}', [LibroController::class, 'show'])->name('libro.sho
 
 Route::get('/libro/destroy/{i}', [LibroController::class, 'destroy'])->name('libro.destroy');
 Route::post('/libro/destroy', [LibroController::class, 'destroy'])->name('libro.destroy');
+
+// Rutas para Familias Profesionales
+Route::get('/familias_profesionales', [FamiliaProfesionalController::class, 'index'])->name('familias_profesionales.index');
+Route::get('/familias_profesionales/create', [FamiliaProfesionalController::class, 'create'])->name('familias_profesionales.create');
+Route::post('/familias_profesionales/create', [FamiliaProfesionalController::class, 'create'])->name('familias_profesionales.create');
+
+Route::get('/familias_profesionales/edit/{id}', [FamiliaProfesionalController::class, 'edit'])->name('familias_profesionales.edit');
+Route::post('/familias_profesionales/edit', [FamiliaProfesionalController::class, 'edit'])->name('familias_profesionales.edit');
+
+Route::get('/familias_profesionales/show/{id}', [FamiliaProfesionalController::class, 'show'])->name('familias_profesionales.show');
+
+Route::get('/familias_profesionales/destroy/{id}', [FamiliaProfesionalController::class, 'destroy'])->name('familias_profesionales.destroy');
+Route::post('/familias_profesionales/destroy', [FamiliaProfesionalController::class, 'destroy'])->name('familias_profesionales.destroy');
